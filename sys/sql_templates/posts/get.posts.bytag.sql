@@ -1,0 +1,2 @@
+SELECT h.*,(SELECT COUNT(p.`post_id`) FROM `{%t_posts%}` p WHERE p.`description` LIKE CONCAT('%#[',h.`id`,']%')) AS use_num FROM `{%t_htags%}` h 
+	WHERE h.`tag` LIKE '{%hashtag%}%' {%offset%}  ORDER BY h.`tag` ASC LIMIT {%limit%};

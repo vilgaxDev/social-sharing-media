@@ -1,0 +1,24 @@
+<?php 
+define('T_CONFIG', 'pxp_config');
+define('T_LANGS', 'pxp_langs');
+define('T_SESSIONS', 'pxp_sessions');
+define('T_USERS', 'pxp_users');
+define('T_MEDIA', 'pxp_media_files');
+define('T_POSTS', 'pxp_posts');
+define('T_POST_COMMENTS', 'pxp_post_comments');
+define('T_CONNECTIV', 'pxp_connectivities');
+define('T_MESSAGES', 'pxp_messages');
+define('T_STORY', 'pxp_story');
+define('T_STORY_VIEWS', 'pxp_story_views');
+define('T_NOTIF', 'pxp_notifications');
+define('T_POST_LIKES', 'pxp_post_likes');
+define('T_CHATS', 'pxp_chats');
+define('T_SAVED_POSTS', 'pxp_saved_posts');
+define('T_POST_REPORTS','pxp_post_reports');
+define('T_USER_REPORTS','pxp_user_reports');
+define('T_PROF_BLOCKS','pxp_blocks');
+define('T_HTAGS','pxp_hashtags');
+define('T_STAT_PAGES','pxp_static_pages');
+define('T_VERIFY','pxp_verification_requests');
+define('T_BLACKLIST','pxp_blacklist');
+define('T_ACTIVITIES','pxp_activities');

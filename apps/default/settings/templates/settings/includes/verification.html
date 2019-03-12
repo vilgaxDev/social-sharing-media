@@ -1,0 +1,75 @@
+<div class="verf-active">
+	<div class="header">
+		<h4>{{LANG verify_p}}</h4>
+		<div class="clear"></div>
+	</div>
+	<hr>
+	<?php if ($context['is_verified'] > 0) { ?>
+	<div class="verify_h"> 
+		<h4 class="text-center">{{LANG request_done}}</h4>
+	</div>
+	<?php } else{ ?>
+	<form class="form row pp_sett_form" id="verify-profile-settings">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+		<div class="pp_mat_input">
+			<input type="url2" name="name" class="form-control" value="<?php echo($context['me']['name']) ?>">
+			<span class="bar"></span>
+			<label>{{LANG name}}</label>
+		</div>
+		<div class="pp_mat_input">
+			<textarea class="form-control" name="message" rows="3"></textarea>
+			<span class="bar"></span>
+			<label>{{LANG message}}</label>
+		</div>
+		<div class="pp_mat_input">
+			<div>
+				<p class="verify_text_1">{{LANG upload_docs}}</p>
+				<p class="verify_text_2">{{LANG select_verif_images}}</p>
+			</div>
+			<div class="clear"></div>
+			
+			<div class="col-md-6">
+				<div class="img_container" id="user_image">
+					<div class="img_container_1">
+						<p class="img_container_2">
+							<p class="img_container_text">{{LANG your_photo}}</p>
+							<div class="text-center">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#66757f" class="feather feather-camera"><path d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"></path></svg>
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="img_container" id="user_ip">
+					<div class="img_container_1">
+						<p class="img_container_2">
+							<p class="img_container_text">{{LANG your_ip}}</p>
+							<div class="text-center">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path style="color: #66757f" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline style="color: #66757f" points="14 2 14 8 20 8"></polyline><line style="color: #66757f" x1="16" y1="13" x2="8" y2="13"></line><line style="color: #66757f" x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+
+		<div class="pp_load_loader"><button class="btn btn-info pp_flat_btn" type="submit"><span>{{LANG send}}</span></button></div>
+		<input type="hidden" name="user_id" value="<?php echo($context['me']['user_id']) ?>">
+		<input type="hidden" name="hash" value="<?php echo($context['csrf_token']) ?>">
+		<input type="file" name="passport" class="hidden" id="ip-photo" accept="image/x-png,image/jpg,image/jpeg">
+		<input type="file" name="photo" class="hidden" id="user-photo" accept="image/x-png,image/jpg,image/jpeg">
+
+		</div>
+		<div class="col-md-1"></div>
+	</form>
+	<?php } ?>
+</div>
+
+<?php 
+include $context['dirname_theme'].'/main/templates/includes/lazy-load.html';
+include $context['dirname_theme'].'/settings/templates/settings/js/script.html';
+ ?>

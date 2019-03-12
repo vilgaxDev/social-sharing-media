@@ -1,0 +1,88 @@
+<?php 
+$requests = $admin::$db->where('status',0)->get(T_VERIFY);
+foreach ($requests as $key => $value) {
+  $value->request_from = $admin->getUserDataById($value->user_id);
+
+}
+ ?>
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>Users > Manage Verification Reqeusts</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Manage Verification Reqeusts</h2>
+                </div>
+                <div class="body">
+                   <div class="table-responsive1">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                      <th>ID</th>
+					                  <th>User</th>
+                            <th>Status</th>
+					                  <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+				                foreach ($requests as $context['verification']) {
+				                    echo $admin->loadPage('manage-verification-requests/list');
+                            
+				                }
+
+				                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    </div>
+    <!-- #END# Vertical Layout -->
+<script>
+
+function delete_request_(id) {
+  $.ajax({
+      url: acpajax_url('delete_v_request_'),
+      type: 'POST',
+      dataType: 'json',
+      data: {
+          id:id,
+      },
+  })
+  .done(function(data) {
+      if (data.status == 200) {
+          $('#VerificationID_' + id).fadeOut(300, function() {
+            $(this).remove();
+          });
+          $('#VerificationID__' + id).fadeOut(300, function() {
+            $(this).remove();
+          });
+      }
+  });
+
+}
+
+function verify_user_(id) {
+  $.ajax({
+      url: acpajax_url('accept_v_request_'),
+      type: 'POST',
+      dataType: 'json',
+      data: {
+          id:id,
+      },
+  })
+  .done(function(data) {
+      if (data.status == 200) {
+          $('#statusID_' + id).html('<strong class="label label-success">Accepted</strong>')
+      }
+  });
+
+}
+
+</script>
